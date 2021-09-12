@@ -7,16 +7,16 @@ services:
                 NODE_ENV: development
         volumes: 
             - ./:/app
-            - sync_modules:/app/node_modules
+            - /app/node_modules
         environment: 
             - NODE_ENV=development
             - MONGO_PASSWORD=thanhkhiet
             - MONGO_USER=thanhkhiet
+            - SESSION_SECRET=secret
         command: npm run dev
 
     mongoDb:
         environment: 
             - MONGO_INITDB_ROOT_USERNAME=thanhkhiet
             - MONGO_INITDB_ROOT_PASSWORD=thanhkhiet
-volumes: 
-    sync_modules:
+    
